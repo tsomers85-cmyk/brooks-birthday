@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hang Time Adventure Party!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #0f172a;
+        }
+        .hero-font {
+            font-family: 'Bangers', system-ui;
+            letter-spacing: 2px;
+        }
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #f00;
+            border-radius: 2px;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(720deg); }
+        }
+        .adventure-card {
+            background: rgba(30, 41, 59, 0.95);
+            border: 2px solid #4f46e5;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 overflow-x-hidden text-white">
+
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none"></div>
+
+    <div class="max-w-md w-full adventure-card rounded-3xl overflow-hidden relative z-10 animate-in fade-in zoom-in duration-700">
+        <!-- Header Section -->
+        <div class="h-52 bg-gradient-to-br from-indigo-900 via-blue-900 to-green-900 flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 flex flex-wrap gap-4 p-4 text-4xl">
+                🧗‍♂️ 🏀 ⚡ 🤸‍♂️ 🧗‍♂️ 🏀 ⚡ 🤸‍♂️
+            </div>
+            <h1 class="hero-font text-7xl text-white drop-shadow-[0_4px_4px_rgba(0,0,0,1)] text-center px-4 uppercase transform -rotate-2">
+                Brooks
+            </h1>
+            <p class="hero-font text-4xl text-lime-400 mt-1 tracking-widest italic uppercase drop-shadow-md">IS TURNING 8</p>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8">
+            <div class="text-center mb-6">
+                <p class="text-lime-400 font-bold tracking-widest uppercase text-xs mb-1">Adventure is Calling</p>
+                <h2 class="text-xl font-extrabold text-white mb-2 uppercase tracking-tighter">You're Invited to the Party!</h2>
+                <div class="h-1 w-20 bg-lime-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="space-y-4 bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+                <button onclick="addToCalendar()" class="w-full text-left flex items-center gap-4 hover:bg-slate-700/50 p-2 -m-2 rounded-xl transition-colors group">
+                    <span class="text-3xl bg-slate-700 p-2 rounded-lg group-hover:bg-lime-600 transition-colors">📅</span>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase font-bold flex items-center gap-1">When <span class="text-[10px] text-lime-400">(Tap to Add to App)</span></p>
+                        <p class="text-lg font-semibold underline decoration-slate-500 underline-offset-4">Saturday, Feb 7th, 2026</p>
+                    </div>
+                </button>
+
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl bg-slate-700 p-2 rounded-lg">⏰</span>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase font-bold">Time</p>
+                        <p class="text-lg font-semibold">1:00 PM - 3:30 PM</p>
+                    </div>
+                </div>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Hang+Time+Adventure+Park+1340+Sandhill+Rd+Orem+UT" target="_blank" class="flex items-center gap-4 hover:bg-slate-700/50 p-2 -m-2 rounded-xl transition-colors group">
+                    <span class="text-3xl bg-slate-700 p-2 rounded-lg group-hover:bg-indigo-600 transition-colors">📍</span>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase font-bold flex items-center gap-1">Where <span class="text-[10px] text-lime-400">(Tap to Open Map)</span></p>
+                        <p class="text-lg font-semibold leading-tight underline decoration-slate-500 underline-offset-4">Hang Time Adventure Park<br><span class="text-sm font-normal text-slate-400">1340 Sandhill Rd, Orem, UT</span></p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- WAIVER SECTION -->
+            <div class="mt-6">
+                <a href="https://waiver.roller.app/hangtimeadventurepark/home" target="_blank" class="block bg-amber-500/10 border-2 border-dashed border-amber-500/50 p-4 rounded-2xl hover:bg-amber-500/20 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-amber-500 text-slate-900 p-2 rounded-lg animate-pulse">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                        </div>
+                        <div>
+                            <p class="text-xs text-amber-500 font-bold uppercase tracking-widest">Action Required</p>
+                            <p class="text-sm font-bold text-white group-hover:text-amber-400 transition-colors underline decoration-amber-500/30">Sign the Online Waiver</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Important Info -->
+            <div class="mt-4 grid grid-cols-2 gap-3">
+                <div class="bg-indigo-900/30 border border-indigo-500/30 p-3 rounded-xl text-center">
+                    <p class="text-[10px] uppercase text-indigo-300 font-bold mb-1">Socks</p>
+                    <p class="text-xs">Grip Socks are Provided! ✅</p>
+                </div>
+                <div class="bg-green-900/30 border border-green-500/30 p-3 rounded-xl text-center">
+                    <p class="text-[10px] uppercase text-green-300 font-bold mb-1">Dress Code</p>
+                    <p class="text-xs">Athletic wear (No Jeans)</p>
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="my-8 text-center">
+                <div class="flex justify-center gap-3">
+                    <div class="bg-slate-800 rounded-xl p-2 w-16 border border-slate-700">
+                        <span id="days" class="block text-xl font-bold text-lime-400">--</span>
+                        <span class="text-[9px] uppercase text-slate-400">Days</span>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-2 w-16 border border-slate-700">
+                        <span id="hours" class="block text-xl font-bold text-lime-400">--</span>
+                        <span class="text-[9px] uppercase text-slate-400">Hrs</span>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-2 w-16 border border-slate-700">
+                        <span id="mins" class="block text-xl font-bold text-lime-400">--</span>
+                        <span class="text-[9px] uppercase text-slate-400">Min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex flex-col gap-3">
+                <button id="rsvp-btn" onclick="rsvp()" class="w-full bg-lime-500 hover:bg-lime-400 text-slate-900 font-black py-4 rounded-2xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-[0_0_15px_rgba(132,204,22,0.4)] uppercase tracking-widest">
+                    Confirm Adventure (RSVP)
+                </button>
+
+                <div id="status-msg" class="hidden text-lime-400 font-bold animate-pulse text-center mt-2 uppercase text-sm">
+                    Connecting to Messages...
+                </div>
+            </div>
+            
+            <p class="text-center text-[10px] text-white/90 mt-6 uppercase tracking-widest font-semibold">
+                Warrior Course • Slamball • Super Slide • Climbing
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#84cc16', '#4f46e5', '#22c55e', '#ffffff', '#fbbf24'];
+            for (let i = 0; i < 40; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 6 + 4 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animationDuration = Math.random() * 2 + 1.5 + 's';
+                container.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+
+        const targetDate = new Date('February 7, 2026 13:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const gap = targetDate - now;
+            const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
+            const d = Math.floor(gap / day), h = Math.floor((gap % day) / hour), m = Math.floor((gap % hour) / minute);
+            document.getElementById('days').innerText = d > 0 ? d : 0;
+            document.getElementById('hours').innerText = h > 0 ? h : 0;
+            document.getElementById('mins').innerText = m > 0 ? m : 0;
+        }
+
+        function rsvp() {
+            createConfetti();
+            const msgEl = document.getElementById('status-msg');
+            msgEl.classList.remove('hidden');
+            
+            const phoneNumber = "6094328146";
+            const message = "Hi! We can't wait to celebrate Brooks's 8th Birthday! Count us in! 🎉";
+            
+            const smsUrl = `sms:${phoneNumber}&body=${encodeURIComponent(message)}`;
+            const smsUrlFallback = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+            
+            setTimeout(() => {
+                try {
+                    window.location.href = smsUrl;
+                    setTimeout(() => {
+                        if (document.hasFocus()) {
+                            window.location.href = smsUrlFallback;
+                        }
+                    }, 500);
+                } catch (e) {
+                    msgEl.innerText = "Please text 609-432-8146 to RSVP!";
+                }
+            }, 500);
+        }
+
+        function addToCalendar() {
+            const title = "Brooks's 8th Birthday Party";
+            const location = "Hang Time Adventure Park, 1340 Sandhill Rd, Orem, UT";
+            const details = "Brooks is turning 8! Sign the waiver: https://waiver.roller.app/hangtimeadventurepark/home";
+            const start = "20260207T130000";
+            const end = "20260207T153000";
+
+            const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+            window.open(googleUrl, '_blank');
+
+            const icsData = [
+                'BEGIN:VCALENDAR', 'VERSION:2.0', 'BEGIN:VEVENT',
+                'URL:' + window.location.href,
+                'DTSTART:' + start, 'DTEND:' + end,
+                'SUMMARY:' + title, 'DESCRIPTION:' + details, 'LOCATION:' + location,
+                'END:VEVENT', 'END:VCALENDAR'
+            ].join('\r\n');
+
+            const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', 'Brooks_Birthday_Party.ics');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        setInterval(updateCountdown, 1000);
+        window.onload = updateCountdown;
+    </script>
+</body>
+</html>
